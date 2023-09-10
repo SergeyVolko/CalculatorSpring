@@ -17,26 +17,26 @@ public class CalculationController {
 
     @GetMapping
     public String salute() {
-        return calculation.getSalute();
+        return "Добро пожаловать в калькулятор";
     }
 
     @GetMapping("/plus")
     public String plus(@RequestParam("num1") String num1, @RequestParam("num2") String num2) {
-        return calculation.plusAction(num1, num2);
+        return String.format("%s + %s = %d", num1, num2, calculation.plusAction(num1, num2));
     }
 
     @GetMapping("/minus")
     public String minus(@RequestParam("num1") String num1, @RequestParam("num2") String num2) {
-        return calculation.minusAction(num1, num2);
+        return String.format("%s - %s = %d", num1, num2, calculation.minusAction(num1, num2));
     }
 
     @GetMapping("/multiply")
     public String multiply(@RequestParam("num1") String num1, @RequestParam("num2") String num2) {
-        return calculation.multiplyAction(num1, num2);
+        return String.format("%s * %s = %d", num1, num2, calculation.multiplyAction(num1, num2));
     }
 
     @GetMapping("/divide")
     public String divide(@RequestParam("num1") String num1, @RequestParam("num2") String num2) {
-        return calculation.divideAction(num1, num2);
+        return String.format("%s / %s = %d", num1, num2, calculation.divideAction(num1, num2));
     }
 }
